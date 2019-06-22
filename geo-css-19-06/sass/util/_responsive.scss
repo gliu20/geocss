@@ -1,0 +1,37 @@
+@import "../constants";
+
+@function avg($a,$b) {
+    @return ($a + $b) / 2;
+}
+
+@function interpolate($small,$large) {
+    $interpolated:();
+    $central-mean:avg($small,$large);
+
+    $interpolated:append($interpolated,$small);
+    $interpolated:append($interpolated,avg($small,$central-mean));
+    $interpolated:append($interpolated,$central-mean);
+    $interpolated:append($interpolated,avg($large,$central-mean));
+    $interpolated:append($interpolated,$large);
+
+    @return $interpolated;
+}
+
+@mixin responsiveInterpolate($property,$small,$large) {
+    $interpolated:interpolate($small,$large);
+
+    #{$property}:nth($interpolated,1);
+
+    @media (min-width:map-get($breakpoints,"sm")) {
+        #{$property}:nth($interpolated,2);
+    }
+    @media (min-width:map-get($breakpoints,"md")) {
+        #{$property}:nth($interpolated,3);
+    }
+    @media (min-width:map-get($breakpoints,"lg")) {
+        #{$property}:nth($interpolated,4);
+    }
+    @media (min-width:map-get($breakpoints,"xl")) {
+        #{$property}:nth($interpolated,5);
+    }
+}

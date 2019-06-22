@@ -1,0 +1,28 @@
+@import "../constants";
+@import "../util/whitespace";
+
+.snackbar {
+    @include padding("sm");
+    @include margin("xs");
+
+    font-size:14px;
+    border-radius: 4px;
+
+    display:inline-flex;
+    align-items: center;
+    background: $defaultColorDark;
+    color: $defaultColorLight;
+}
+.snackbar--full-width {
+    display:flex;
+}
+.snackbar__text,.snackbar__button {
+    @include margin-h("xs");
+}
+.snackbar__text {
+    flex:1;
+    color: $defaultColorLight;
+}
+.snackbar__button {
+    color: $defaultColorAccent;
+}

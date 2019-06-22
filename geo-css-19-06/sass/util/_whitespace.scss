@@ -1,0 +1,80 @@
+@import "../constants";
+@import "responsive";
+
+@mixin padding ($size) {
+    $sizePair:map-get($whitespaceScale,$size);
+    @include responsiveInterpolate(
+        "padding",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+}
+
+@mixin padding-v ($size) {
+    $sizePair:map-get($whitespaceScale,$size);
+    @include responsiveInterpolate(
+        "padding-top",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    @include responsiveInterpolate(
+        "padding-bottom",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    
+}
+
+@mixin padding-h ($size) {
+    $sizePair:map-get($whitespaceScale,$size);
+    @include responsiveInterpolate(
+        "padding-left",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    @include responsiveInterpolate(
+        "padding-right",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    
+}
+
+@mixin margin ($size) {
+    $sizePair:map-get($whitespaceScale,$size);
+    @include responsiveInterpolate(
+        "margin",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+}
+
+@mixin margin-v ($size) {
+    $sizePair:map-get($whitespaceScale,$size);
+    @include responsiveInterpolate(
+        "margin-top",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    @include responsiveInterpolate(
+        "margin-bottom",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    
+}
+
+@mixin margin-h ($size) {
+    $sizePair:map-get($whitespaceScale,$size);
+    @include responsiveInterpolate(
+        "margin-left",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    @include responsiveInterpolate(
+        "margin-right",
+        nth($sizePair,1),
+        nth($sizePair,2)
+    );
+    
+}
