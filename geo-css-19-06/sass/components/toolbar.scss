@@ -1,0 +1,27 @@
+@import "../constants";
+@import "../util/whitespace";
+@import "../util/typography";
+@import "../util/corners";
+
+.toolbar {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    background: $defaultColorAccent;
+    color: $defaultColorLight;
+}
+
+.toolbar__text {
+    @include padding-v("lg");
+    @include padding-h("md");
+    flex:1;
+}
+
+.toolbar__actions {
+    @include margin("none");
+
+    display:inline-flex;
+    flex-direction: row;
+    align-items: center;
+    // TODO fix spacing w/ margin-right etc directives
+}
