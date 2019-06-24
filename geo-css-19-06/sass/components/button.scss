@@ -43,12 +43,12 @@
 	&:hover::before,
 	&:focus::before,
 	&:active::after {
-    	opacity:0.18;
+    	opacity:0.16;
 	}
 }
 
 .button--outline {
-    box-shadow: inset $defaultColorAccent 0 0 0 2px;
+    box-shadow: inset currentColor 0 0 0 2px;
     background: unset;
     color: $defaultColorAccent;
 }

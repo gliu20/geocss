@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Components</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' href='css/index.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/index.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--<script src='main.js'></script>-->
+    <!--<script src="main.js"></script>-->
 </head>
 <body class="force-no-outline">
     <h1>Components</h1>
@@ -45,8 +45,20 @@
     <article>
         <h2>Chips</h2>
         <section>
-        	<span class="chip">Click!</span>
-        	<span class="chip chip--round">Click!</span>
+        	<div class="chip">
+                <span class="chip__text">Click!</span>
+            </div>
+        	<div class="chip">
+        		<span class="chip__text">Click!</span>
+        		<button class="material-icons button button--icon button--text">close</button>
+        	</div>
+        	<div class="chip chip--round">
+        		<span class="chip__text">Click!</span>
+        		<button class="material-icons button button--icon button--text">close</button>
+        	</div>
+        	<div class="chip chip--round">
+                <span class="chip__text">Click!</span>
+            </div>
         </section>
     </article>
     <article>

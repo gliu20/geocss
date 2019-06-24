@@ -4,20 +4,34 @@
 @import "../util/corners";
 
 .chip {
-    @include padding-h("sm");
-    @include padding-v("xs");
     @include margin("xs");
     @include type("p2");
     @include corner("sm");
     
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
     background: $defaultColorLight;
     color: $defaultColorDark;
     border:0;
+
+    & .chip__text {
+        @include padding-h("xs");
+        @include padding-v("xs");
+    }
+
+    & .button {
+        @include padding("ss");
+        @include margin("none");
+    }
 }
 
 .chip--round {
-    @include padding-h("md");
+    & .chip__text {
+        @include padding-h("md");
+        // TODO create padding-right left and more fine-grained
+        // controls then fix the spacing on this component
+    }
+
     @include corner("round");
 }
 
