@@ -1,0 +1,23 @@
+@import "../constants";
+@import "../util/whitespace";
+@import "../util/typography";
+@import "../util/corners";
+
+.chip {
+    @include padding-h("sm");
+    @include padding-v("xs");
+    @include margin("xs");
+    @include type("p2");
+    @include corner("sm");
+    
+    display:inline-block;
+    background: $defaultColorLight;
+    color: $defaultColorDark;
+    border:0;
+}
+
+.chip--round {
+    @include padding-h("md");
+    @include corner("round");
+}
+

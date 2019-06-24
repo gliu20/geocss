@@ -1,0 +1,61 @@
+@import "../constants";
+@import "../util/whitespace";
+@import "../util/typography";
+@import "../util/corners";
+
+.button {
+    @include padding-h("md");
+    @include padding-v("sm");
+    @include margin("xs");
+    @include type("p2");
+    @include corner("sm");
+
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    background: $defaultColorAccent;
+    color: $defaultColorLight;
+    border:0;
+    
+    &::before,&::after {
+    	content:"";
+    	position:absolute;
+    	top:0;left:0;right:0;bottom:0;
+    	background:currentColor;
+    	transition:opacity 0.1s ease-in;
+    	opacity:0;
+	}
+    
+    &:hover::before,
+	&:focus::before,
+	&:active::after {
+    	opacity:0.24;
+	}
+}
+
+.button--round {
+    @include padding-h("lg");
+    @include corner("round");
+}
+
+.button--outline,
+.button--text {
+	&:hover::before,
+	&:focus::before,
+	&:active::after {
+    	opacity:0.18;
+	}
+}
+
+.button--outline {
+    box-shadow: inset $defaultColorAccent 0 0 0 2px;
+    background: unset;
+    color: $defaultColorAccent;
+}
+
+.button--text {
+    background: unset;
+    color: $defaultColorAccent;
+}
+
+

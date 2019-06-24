@@ -1,33 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Components</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' href='css/index.css'>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--<script src='main.js'></script>-->
 </head>
-<body>
+<body class="force-no-outline">
+    <h1>Components</h1>
     <article>
-        <h1>Snackbars</h1>
-        <section class="snackbar">
-            <div class="snackbar__text">Come back for snacks!</div>
+        <h2>Buttons</h2>
+        <section>
+        	<h3>Rectangular</h3>
+        	<button class="button">Click!</button>
+        	<button class="button button--outline">Click!</button>
+        	<button class="button button--text">Click!</button>
         </section>
         
-        <section class="snackbar snackbar--full-width">
-            <div class="snackbar__text">Come back for snacks!</div>
-        </section>
-        
-        <section class="snackbar">
-            <div class="snackbar__text">Come back for snacks!</div>
-            <a class="snackbar__button" href="javascript:;">Okay!</a>
-        </section>
-        
-        <section class="snackbar snackbar--full-width">
-            <div class="snackbar__text">Come back for snacks!</div>
-            <a class="snackbar__button" href="javascript:;">Okay!</a>
+        <section>
+        	<h3>Rounded</h3>
+        	<button class="button button--round">Click!</button>
+        	<button class="button button--round button--outline">Click!</button>
+        	<button class="button button--round button--text">Click!</button>
         </section>
     </article>
+    <article>
+        <h2>Icon Buttons</h2>
+        <section>
+            <h3>Normal</h3>
+        	<button class="material-icons button button--icon">add</button>
+        	<button class="material-icons button button--icon button--outline">favorite</button>
+        	<button class="material-icons button button--icon button--text">delete</button>
+        </section>
+        <section>
+            <h3>Icon FABs</h3>
+        	<button class="material-icons button button--icon-fab">add</button>
+        	<button class="material-icons button button--icon-fab button--outline">favorite</button>
+        	<button class="material-icons button button--icon-fab button--text">delete</button>
+        </section>
+    </article>
+    <article>
+        <h2>Chips</h2>
+        <section>
+        	<span class="chip">Click!</span>
+        	<span class="chip chip--round">Click!</span>
+        </section>
+    </article>
+    <article>
+        <h2>Snackbars</h2>
+        <section>
+            <h3>Rectangular</h3>
+            <section class="snackbar">
+                <div class="snackbar__text">Come back for snacks!</div>
+            </section>
+            
+            <section class="snackbar snackbar--full-width">
+                <div class="snackbar__text">Come back for snacks!</div>
+            </section>
+            
+            <section class="snackbar">
+                <div class="snackbar__text">Come back for snacks!</div>
+                <div class="snackbar__actions">
+                    <button class="button button--text">Okay!</button>
+                </div>
+            </section>
+
+            <section class="snackbar">
+                <div class="snackbar__text">Come back for snacks!</div>
+                <div class="snackbar__actions">
+                    <button class="button button--text">Okay!</button>
+                    <button class="material-icons button button--icon button--text">close</button>
+                </div>
+            </section>
+
+            <section class="snackbar">
+                <div class="snackbar__text">Come back for snacks!</div>
+                <div class="snackbar__actions">
+                    <button class="material-icons button button--icon button--text">close</button>
+                </div>
+            </section>
+            
+            <section class="snackbar snackbar--full-width">
+                <div class="snackbar__text">Come back for snacks!</div>
+                <div class="snackbar__actions">
+                    <button class="button button--text">Okay!</button>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h3>Rounded</h3>
+            <section class="snackbar snackbar--round">
+                <div class="snackbar__text">Come back for snacks!</div>
+            </section>
+            
+            <section class="snackbar snackbar--full-width snackbar--round">
+                <div class="snackbar__text">Come back for snacks!</div>
+            </section>
+            
+            <section class="snackbar snackbar--round">
+                    <div class="snackbar__text">Come back for snacks!</div>
+                    <div class="snackbar__actions">
+                        <button class="button button--text button--round">Okay!</button>
+                    </div>
+                </section>
+    
+                <section class="snackbar snackbar--round">
+                    <div class="snackbar__text">Come back for snacks!</div>
+                    <div class="snackbar__actions">
+                        <button class="button button--text button--round">Okay!</button>
+                        <button class="material-icons button button--icon button--text">close</button>
+                    </div>
+                </section>
+    
+                <section class="snackbar snackbar--round">
+                    <div class="snackbar__text">Come back for snacks!</div>
+                    <div class="snackbar__actions">
+                        <button class="material-icons button button--icon button--text">close</button>
+                    </div>
+                </section>
+            
+            <section class="snackbar snackbar--full-width snackbar--round">
+                <div class="snackbar__text">Come back for snacks!</div>
+                <div class="snackbar__actions">
+                    <button class="button button--text button--round">Okay!</button>
+                </div>
+            </section>
+        </section>
+    </article>
+    <script src="js/accessible-focus.js"></script>
 </body>
 </html>

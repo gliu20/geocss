@@ -1,0 +1,8 @@
+@import "../constants";
+
+@mixin type($size) {
+    font-size: map-get($typeScale,$size);
+    font-weight: map-get($typeBoldScale,$size);
+    line-height: map-get($typeHeightScale,$size);
+}
+

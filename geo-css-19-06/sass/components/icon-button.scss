@@ -1,0 +1,18 @@
+@import "../constants";
+@import "../util/whitespace";
+@import "../util/corners";
+
+.button--icon {
+    @include padding("xs");
+    @include corner("round");
+
+    font-weight:400;
+    display:inline-block;
+}
+
+.button--icon-fab {
+    @include padding("md");
+    @include corner("round");
+
+    display:inline-block;
+}
