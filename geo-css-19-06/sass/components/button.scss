@@ -6,7 +6,7 @@
 .button {
     @include padding-h("md");
     @include padding-v("sm");
-    @include margin("xs");
+    @include margin("ss");
     @include type("p2");
     @include corner("sm");
 
@@ -16,13 +16,13 @@
     background: $defaultColorAccent;
     color: $defaultColorLight;
     border:0;
-    
+
     &::before,&::after {
     	content:"";
     	position:absolute;
     	top:0;left:0;right:0;bottom:0;
     	background:currentColor;
-    	transition:opacity 0.1s ease-in;
+    	transition:opacity 0.1s ease-in, box-shadow 0.2s ease-in;
     	opacity:0;
 	}
     
@@ -30,7 +30,11 @@
 	&:focus::before,
 	&:active::after {
     	opacity:0.24;
-	}
+    }
+    
+    &:hover {
+        box-shadow: $defaultShadowAccent;
+    }
 }
 
 .button--round {
@@ -51,11 +55,19 @@
     box-shadow: inset currentColor 0 0 0 2px;
     background: unset;
     color: $defaultColorAccent;
+
+    &:hover {
+        box-shadow: inset currentColor 0 0 0 2px;
+    }
 }
 
 .button--text {
     background: unset;
     color: $defaultColorAccent;
+
+    &:hover {
+        box-shadow: none;
+    }
 }
 
 

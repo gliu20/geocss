@@ -1,0 +1,22 @@
+@import "../constants";
+@import "../util/whitespace";
+@import "../util/corners";
+@import "../util/typography";
+
+.input {
+    @include padding-h("md");
+    @include padding-v("sm");
+    @include margin("ss");
+    @include type("p2");
+    @include corner("sm");
+
+    box-shadow: inset $defaultColorAccent 0 0 0 2px;//, $defaultShadow;
+    background: unset;
+    color: $defaultColorDark;
+    border:0;
+}
+
+.input--round {
+    @include padding-h("lg");
+    @include corner("round");
+}

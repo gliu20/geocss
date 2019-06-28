@@ -22,10 +22,10 @@
 
     #{$property}:nth($interpolated,1);
 
-    @media (min-width:map-get($breakpoints,"sm")) {
-        #{$property}:nth($interpolated,2);
-    }
-    @media (min-width:map-get($breakpoints,"lg")) {
-        #{$property}:nth($interpolated,3);
-    }
+    // @media (min-width:map-get($breakpoints,"sm")) {
+    //     #{$property}:nth($interpolated,2);
+    // }
+    // @media (min-width:map-get($breakpoints,"lg")) {
+    //     #{$property}:nth($interpolated,3);
+    // }
 }

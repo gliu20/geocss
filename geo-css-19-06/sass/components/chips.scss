@@ -3,11 +3,14 @@
 @import "../util/typography";
 @import "../util/corners";
 
+// TODO figure out case of popping chips; 
+// see demo page w/o display flex 
 .chip {
-    @include margin("xs");
+    @include margin("ss");
     @include type("p2");
     @include corner("sm");
-    
+    @include padding-h("ss");
+
     display:inline-flex;
     align-items:center;
     background: $defaultColorLight;
@@ -15,7 +18,7 @@
     border:0;
 
     & .chip__text {
-        @include padding-h("xs");
+        @include padding-h("ss");
         @include padding-v("xs");
     }
 
@@ -27,7 +30,7 @@
 
 .chip--round {
     & .chip__text {
-        @include padding-h("md");
+        @include padding-h("xs");
         // TODO create padding-right left and more fine-grained
         // controls then fix the spacing on this component
     }

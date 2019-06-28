@@ -4,14 +4,15 @@
 @import "../util/corners";
 
 .snackbar {
-    @include margin("xs");
+    @include margin("ss");
     @include type("p2");
     @include corner("sm");
 
     display:inline-flex;
     align-items: center;
-    background: $defaultColorDark;
-    color: $defaultColorLight;
+    background: $defaultColorLight;
+    color: $defaultColorDark;
+    box-shadow: $defaultShadowLight;
 }
 .snackbar--full-width {
     display:flex;
@@ -27,7 +28,6 @@
     @include margin-h("lg");
     @include margin-v("md");
 
-    color: $defaultColorLight;
     flex:1;
 }
 .snackbar__actions {
@@ -38,6 +38,6 @@
 
     & .button {
         @include margin("none");
-        margin-left:0;
+        @include margin-h("ss");
     }
 }

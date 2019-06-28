@@ -4,11 +4,16 @@
 @import "../util/corners";
 
 .toolbar {
+    @include padding-h("ss");
     display:flex;
     flex-direction: row;
     align-items: center;
     background: $defaultColorAccent;
     color: $defaultColorLight;
+
+    & .button {
+        box-shadow:none;
+    }
 }
 
 .toolbar__text {

@@ -1,0 +1,26 @@
+@import "../constants";
+@import "../util/whitespace";
+@import "../util/typography";
+
+.icon {
+    @include padding("xs");
+    @include type("h6");
+
+    font-weight:400;
+    line-height: 1;
+    display:inline-block;
+}
+
+.icon-separator {
+    @include padding-h("ss");
+}
+
+.button {
+    & .icon {
+        @include padding("none");
+    }
+
+    display: inline-flex;
+    flex-direction:row;
+    align-items: center;
+}

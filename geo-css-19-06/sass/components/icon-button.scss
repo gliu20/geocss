@@ -1,18 +1,24 @@
 @import "../constants";
 @import "../util/whitespace";
 @import "../util/corners";
+@import "../util/typography";
 
 .button--icon {
     @include padding("xs");
+    @include type("h5");
     @include corner("round");
 
     font-weight:400;
     display:inline-block;
+    line-height: 1;
 }
 
 .button--icon-fab {
     @include padding("md");
     @include corner("round");
+    @include type("h5");
 
+    font-weight:400;
     display:inline-block;
+    line-height: 1;
 }
