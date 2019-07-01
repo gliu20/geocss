@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Polydice | A tool for generating diceware passwords</title>
+    <meta name="description" content="A tool for generating diceware passwords">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="css/index.min.css">
+    <!--<script src="main.js"></script>-->
+
+<style>
+    html,body {
+        height:100%;
+    }
+    body {
+        display:flex;
+        height:100%;
+        flex-direction:column;
+    }
+    main {
+        flex:1;
+        overflow:auto;
+    }
+
+    .roll-indicator {
+        padding:10px;
+        font-size:400%;
+        display:flex;
+        justify-content:center;
+    }
+    .roll-btn {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .roll-list {
+        display:flex;
+        flex-direction: column;
+    }
+    .roll-list-item {
+        margin:12px 18px;
+        margin-bottom:0;
+        background:#eee;
+        color:#333;
+    }
+    .roll-list-item .snackbar__text {
+        color:#333;
+    }
+    
+    .pass-security-info {
+        text-align:center;
+    }
+    .pass-security-info-container {
+        padding:20px;
+        padding-top:5px;
+    }
+    
+    .dice {
+        display:inline-block;
+        font-size:1em;
+        line-height:1;
+        height:1em;
+        width:1em;
+        overflow:hidden;
+    }
+
+    .dice__face {
+        display:inline-block;
+        transition: transform 0.2s ease-out;
+    }
+ 
+    .dice--value-1 .dice__face { transform: translateY(0em);}
+    .dice--value-2 .dice__face { transform: translateY(-1em);}
+    .dice--value-3 .dice__face { transform: translateY(-2em);}
+    .dice--value-4 .dice__face { transform: translateY(-3em);}
+    .dice--value-5 .dice__face { transform: translateY(-4em);}
+    .dice--value-6 .dice__face { transform: translateY(-5em);}
+
+</style>
+</head>
+<body class="force-no-outline">
+    <header class="toolbar">
+        <div class="toolbar__text">
+            <h1 class="h4">Polydice</h1>
+            <p>A tool for generating diceware passwords</p>
+        </div>
+    </header>
+    <main>
+        <section class="roll-list">
+        </section>
+    </main>
+    <section class="roll-indicator">
+            <div class="dice dice--value-1">
+                <span class="dice__face">&#9856;</span>
+                <span class="dice__face">&#9857;</span>
+                <span class="dice__face">&#9858;</span>
+                <span class="dice__face">&#9859;</span>
+                <span class="dice__face">&#9860;</span>
+                <span class="dice__face">&#9861;</span>
+            </div>
+            <div class="dice dice--value-2">
+                <span class="dice__face">&#9856;</span>
+                <span class="dice__face">&#9857;</span>
+                <span class="dice__face">&#9858;</span>
+                <span class="dice__face">&#9859;</span>
+                <span class="dice__face">&#9860;</span>
+                <span class="dice__face">&#9861;</span>
+            </div>
+            <div class="dice dice--value-3">
+                <span class="dice__face">&#9856;</span>
+                <span class="dice__face">&#9857;</span>
+                <span class="dice__face">&#9858;</span>
+                <span class="dice__face">&#9859;</span>
+                <span class="dice__face">&#9860;</span>
+                <span class="dice__face">&#9861;</span>
+            </div>
+            <div class="dice dice--value-4">
+                <span class="dice__face">&#9856;</span>
+                <span class="dice__face">&#9857;</span>
+                <span class="dice__face">&#9858;</span>
+                <span class="dice__face">&#9859;</span>
+                <span class="dice__face">&#9860;</span>
+                <span class="dice__face">&#9861;</span>
+            </div>
+            <div class="dice dice--value-5">
+                <span class="dice__face">&#9856;</span>
+                <span class="dice__face">&#9857;</span>
+                <span class="dice__face">&#9858;</span>
+                <span class="dice__face">&#9859;</span>
+                <span class="dice__face">&#9860;</span>
+                <span class="dice__face">&#9861;</span>
+            </div>
+        </section>
+        <section class="pass-security-info-container">
+            <h2 id="bitsOfEntropy" class="pass-security-info h5">Start rolling!</h2>
+            <p id="timeToGuess" class="pass-security-info">Your password security info will appear here</p>
+        </section>
+        <button class="button button--round roll-btn" onclick="rollHandler(this)">
+            <span class="material-icons icon">play_arrow</span>&nbsp;
+            <span>Roll the dice</span>
+        </button>
+    <script src="js/accessible-focus.js"></script>
+    <script src="dicelist.js"></script>
+    <script>
+        function secondsToCrack (bitsOfEntropyInPassword,log2GuessesPerSecond) {
+
+let log2maxSecureTime = bitsOfEntropyInPassword - log2GuessesPerSecond;
+let log2avgSecureTime = log2maxSecureTime - 1; // divide by half
+// div by half cuz 
+// there’s a 50 percent chance that an attacker will guess your word
+// by the time they are halfway through the word list
+
+return Math.pow(2,log2avgSecureTime);// returns seconds
+
+}
+
+function secondsToYears (seconds) {
+return seconds / 
+    60 / /* 60 sec in min */
+    60 / /* 60 min in 1 hr */
+    24 / /* 24 hour in day */
+    365.25; /* 365.25 days in year */
+}
+
+
+    </script>
+    <script>
+        /**
+         *  - Handles the rolling and stop rolling of dice
+         *  - Updates global state when roll finished 
+         */
+        (function () {
+            var rollBtnState1 = `<button class="button button--round roll-btn" onclick="rollHandler(this)">
+                <span class="material-icons icon">play_arrow</span>&nbsp;
+                <span>Roll the dice</span>
+            </button>`;
+            var rollBtnState2 = `<button class="button button--outline button--round roll-btn" onclick="rollHandler(this)">
+                <span class="material-icons icon">stop</span>&nbsp;
+                <span>Stop rolling</span>
+            </button>`;
+
+            var dices = document.querySelectorAll(".dice");
+            var rollList = document.querySelector(".roll-list");
+
+            var currRoll = "";
+            var rollInstance;
+            var rolling = false;
+
+            var bitsOfEntropy = document.getElementById("bitsOfEntropy");
+            var timeToGuess = document.getElementById("timeToGuess");
+
+            window.rolls = [];
+
+            function rollTheDice () {
+                var currRandNum;
+
+                currRoll = "";
+
+                for (var ele of dices) {
+                    currRandNum = Math.floor(Math.random() * 6 + 1);
+                    ele.className = "dice dice--value-" + currRandNum;
+                    currRoll += currRandNum;
+                }
+            }
+
+            function goRoll () {
+            	rollTheDice();
+                rollInstance = setInterval(rollTheDice,200);
+                rolling = true;
+            }
+            function stopRoll () {
+                clearInterval(rollInstance);
+                rolling = false;
+            }
+
+            function convertToEmojis (currRoll) {
+                var dict = ["&#9856;","&#9857;","&#9858;","&#9859;","&#9860;","&#9861;"];
+                var ans = "";
+                for (var i = 0; i < currRoll.length; i++) {
+                    ans += dict[currRoll[i]-1]
+                }
+                return ans;
+            }
+
+            function friendlyTime (timeInSeconds) {
+                if (timeInSeconds < 1) {
+                    return `Less than a second`;
+                }
+                if (timeInSeconds < 60) {
+                    return `${(timeInSeconds).toPrecision(3)} seconds`;
+                }
+                else if (timeInSeconds < 60*60) {
+                    return `${(timeInSeconds/60).toPrecision(3)} minutes`;
+                }
+                else if (timeInSeconds < 60*60*24) {
+                    return `${(timeInSeconds/60/60).toPrecision(3)} hours`;
+                }
+                else if (timeInSeconds < 60*60*24*7) {
+                    return `${(timeInSeconds/60/60/24).toPrecision(3)} days`;
+                }
+                else if (timeInSeconds < 60*60*24*7*4) {
+                    return `${(timeInSeconds/60/60/24/7).toPrecision(3)} weeks`;
+                }
+                else if (timeInSeconds < 60*60*24*30*12) {
+                    return `${(timeInSeconds/60/60/24/30).toPrecision(3)} months`;
+                }
+                else if (timeInSeconds < 60*60*24*365.25*10) {
+                    return `${(timeInSeconds/60/60/24/365.25).toPrecision(3)} years`;
+                }
+                else if (timeInSeconds < 60*60*24*365.25*10*10){
+                    return `${(timeInSeconds/60/60/24/365.25/10).toPrecision(3)} decades`;
+                }
+                else {
+                    return `Centuries`;
+                }
+            }
+
+            function addNewRoll () {
+                var entropy,timeToCrack;
+
+                rolls.push(currRoll);
+                rollList.innerHTML += `<div class="roll-list-item snackbar">
+                    <div class="snackbar__text">
+                        <h2 class="h6">${currRoll}</h2>
+                        <p>${diceWordsMap[currRoll]}</p>
+                    </div>
+                    <div class="snackbar__actions">
+                        <h3 class="h2">${convertToEmojis(currRoll)}</h3>
+                    </div>
+                </div>`;
+
+                entropy = Math.log2(7776 ** rolls.length);
+                timeToCrack = secondsToCrack(entropy,Math.log2(1e10));
+                console.log(timeToCrack)
+
+                bitsOfEntropy.innerHTML = `${entropy.toPrecision(3)} bits of entropy 
+            <button class="material-icons button button--icon button--text" onclick="alert('Time to guess assumes an attacker can execute an attack at 1e10 guesses per second.')">info</button>`;
+                timeToGuess.innerText = `${friendlyTime(timeToCrack)} to guess on a fast computer`;
+            }
+
+            window.rollHandler = function (ele) {
+                if (rolling) {
+                    stopRoll();
+                    ele.outerHTML = rollBtnState1;
+                    addNewRoll();
+                }
+                else {
+                    goRoll();
+                    ele.outerHTML = rollBtnState2;
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

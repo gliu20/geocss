@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Midway | Make the most of class time</title>
+    <meta name="description" content="A browser extension that helps you make the most of class time.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="css/index.min.css">
+    <!--<script src="main.js"></script>-->
+    <style>
+        html,
+        body {
+            height: 100%;
+            font-family:Cabin;
+            font-size:110%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            overflow: auto;
+            color:#eee;
+        }
+        
+		.hero {
+			padding:72px;
+            background-color: #000;
+            background-image: url(img/back.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+		}
+        .toolbar {
+            background:#fff;
+            color:#333;
+        }
+    </style>
+</head>
+
+<body class="force-no-outline">
+    <header class="toolbar">
+        <div class="toolbar__text">
+            <h1 class="h5" style="font-family:Pacifico">Midway</h1>
+        </div>
+        <div class="toolbar__actions">
+            <a href="javascript:;" class="link">Home</a>
+            <a href="javascript:;" class="link">About</a>
+            <a href="javascript:;" class="link">Support</a>
+            <a href="javascript:;" class="link">Contact</a>
+            <button class="button">
+                <span class="material-icons icon">file_download</span>
+                <span class="icon-separator"></span>
+                Get Midway
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="hero" style="
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content:center;">
+            <img alt="midway logo" width="128px" height="128px" style="padding:5px;" src="img/logo.png"></img>
+            <h2 class="h1" style="text-align:center;padding-bottom:5px;">Make the most of class time</h2>
+            <p style="padding-bottom:20px;text-align:center;max-width:510px;line-height:1.5;">Midway helps teachers and students make the most of class time with end of class reminders, custom timers, and periodic notifications.</p>
+            <button class="button">
+                <span class="material-icons icon">file_download</span>
+                <span class="icon-separator"></span>
+                Get Midway
+            </button>
+        </section>
+    </main>
+    <script src="js/accessible-focus.js"></script>
+</body>
+
+</html>
