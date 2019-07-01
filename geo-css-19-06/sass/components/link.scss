@@ -1,0 +1,16 @@
+@import "../constants";
+@import "../util/whitespace";
+@import "../util/typography";
+@import "../util/corners";
+
+.link {
+    @include padding-h("md");
+    @include padding-v("sm");
+    @include margin("ss");
+    @include type("p2");
+
+    
+    font-weight: 500;
+    color:inherit;
+
+}

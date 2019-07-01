@@ -15,22 +15,26 @@ fi
 
 
 ### Set initial time of file
-LTIME=`stat -c %Z $1.css > /dev/null 2>&1`
+LTIME=`stat -c %Z $1.css`
 
 echo "Media Query Merger is watching for changes..."
 
 while true    
 do
-   ATIME=`stat -c %Z $1.css > /dev/null 2>&1`
+   if [ -f $1.css ]; then
+       ATIME=`stat -c %Z $1.css`
 
-   if [[ "$ATIME" != "$LTIME" ]]
-   then
-       echo "Compiling $1.css to $1.min.css"
-       node compileCSS.js $1.css > $1.min.css
-       csso $1.min.css --output $1.min.css
-       LTIME=$ATIME
+       if [[ "$ATIME" != "$LTIME" ]]
+       then
+           echo "Compiling $1.css to $1.min.css"
+           node compileCSS.js $1.css > $1.min.css
+           csso $1.min.css --output $1.min.css
+           LTIME=$ATIME
+       fi
    fi
+   
    sleep 1
+   
 done
 
 

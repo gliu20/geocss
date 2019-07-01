@@ -10,10 +10,6 @@
     align-items: center;
     background: $defaultColorAccent;
     color: $defaultColorLight;
-
-    & .button {
-        box-shadow:none;
-    }
 }
 
 .toolbar__text {

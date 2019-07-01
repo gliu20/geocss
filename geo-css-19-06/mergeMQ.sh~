@@ -21,16 +21,20 @@ echo "Media Query Merger is watching for changes..."
 
 while true    
 do
-   ATIME=`stat -c %Z $1.css`
+   if [ -f /tmp/foo.txt ]; then
+       ATIME=`stat -c %Z $1.css`
 
-   if [[ "$ATIME" != "$LTIME" ]]
-   then
-       echo "Compiling $1.css to $1.min.css"
-       node compileCSS.js $1.css > $1.min.css
-       csso $1.min.css --output $1.min.css
-       LTIME=$ATIME
+       if [[ "$ATIME" != "$LTIME" ]]
+       then
+           echo "Compiling $1.css to $1.min.css"
+           node compileCSS.js $1.css > $1.min.css
+           csso $1.min.css --output $1.min.css
+           LTIME=$ATIME
+       fi
    fi
+   
    sleep 1
+   
 done
 
 

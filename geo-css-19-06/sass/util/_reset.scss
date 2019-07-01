@@ -50,8 +50,9 @@ table {
 /* Custom reset
  */
 
-button,input {
-    font-family:inherit;
+button,input,textarea {
+	font-family:inherit;
+	font-size:inherit;
 }
 
 a {
