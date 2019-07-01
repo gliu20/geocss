@@ -1,0 +1,10 @@
+@import "../mixins/all";
+@import "../constants";
+
+$cornerTypes: map-keys($cornerScale);
+
+@each $type in $cornerTypes {
+    .u-corner--#{$type} {
+        @include corner($type);
+    }
+}

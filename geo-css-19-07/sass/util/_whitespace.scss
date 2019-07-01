@@ -1,0 +1,59 @@
+@import "../mixins/all";
+@import "../constants";
+
+$whitespaceTypes: map-keys($whitespaceScale);
+
+@each $type in $whitespaceTypes {
+
+    /* ==================================================
+     * Padding
+     */
+
+    .u-padding--#{$type} {
+        @include padding($type);
+    }
+    .u-paddingLeft--#{$type} {
+        @include padding-left($type);
+    }
+    .u-paddingRight--#{$type} {
+        @include padding-right($type);
+    }
+    .u-paddingTop--#{$type} {
+        @include padding-top($type);
+    }
+    .u-paddingBottom--#{$type} {
+        @include padding-bottom($type);
+    }
+    .u-paddingVert--#{$type} {
+        @include padding-v($type);
+    }
+    .u-paddingHoriz--#{$type} {
+        @include padding-h($type);
+    }
+
+    /* ==================================================
+     * Margin
+     */
+    
+    .u-margin--#{$type} {
+        @include margin($type);
+    }
+    .u-marginLeft--#{$type} {
+        @include margin-left($type);
+    }
+    .u-marginRight--#{$type} {
+        @include margin-right($type);
+    }
+    .u-marginTop--#{$type} {
+        @include margin-top($type);
+    }
+    .u-marginBottom--#{$type} {
+        @include margin-bottom($type);
+    }
+    .u-marginVert--#{$type} {
+        @include margin-v($type);
+    }
+    .u-marginHoriz--#{$type} {
+        @include margin-h($type);
+    }
+}

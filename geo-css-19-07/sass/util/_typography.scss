@@ -1,0 +1,10 @@
+@import "../mixins/all";
+@import "../constants";
+
+$typeTypes: map-keys($typeScale);
+
+@each $type in $typeTypes {
+    .u-type--#{$type} {
+        @include type($type);
+    }
+}

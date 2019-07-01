@@ -1,0 +1,5 @@
+@import "../constants";
+
+@mixin corner($size) {
+    border-radius: map-get($cornerScale,$size);
+}

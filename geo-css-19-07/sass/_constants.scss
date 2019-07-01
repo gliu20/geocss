@@ -1,0 +1,70 @@
+@import "math/pow";
+
+$whitespaceScaleBase: 4px / 16px * 1rem;
+$whitespaceScale: (
+    "0":  0  * $whitespaceScaleBase,
+    "1":  1  * $whitespaceScaleBase,//ss
+    "2":  2  * $whitespaceScaleBase,//xs
+    "3":  3  * $whitespaceScaleBase,//sm
+    "4":  4  * $whitespaceScaleBase,//md
+    "5":  5  * $whitespaceScaleBase,//lg
+    "6":  6  * $whitespaceScaleBase,
+    "7":  7  * $whitespaceScaleBase,
+    "8":  8  * $whitespaceScaleBase,
+    "9":  9  * $whitespaceScaleBase,
+    "10": 10 * $whitespaceScaleBase,
+    "11": 11 * $whitespaceScaleBase,
+    "12": 12 * $whitespaceScaleBase,
+    "13": 13 * $whitespaceScaleBase,
+    "14": 14 * $whitespaceScaleBase,
+    "15": 15 * $whitespaceScaleBase,
+    "16": 16 * $whitespaceScaleBase,
+    "17": 17 * $whitespaceScaleBase,
+    "18": 18 * $whitespaceScaleBase,
+    "19": 19 * $whitespaceScaleBase,
+    "20": 20 * $whitespaceScaleBase//xl
+);
+
+$cornerScaleBase: 4px / 16px * 1rem;
+$cornerScale: (
+    "0":   0 * $cornerScaleBase,
+    "1":   1 * $cornerScaleBase,
+    "2":   2 * $cornerScaleBase,
+    "3":   3 * $cornerScaleBase,
+    "4":   4 * $cornerScaleBase,
+    "5":   5 * $cornerScaleBase,
+    "o": 50%,
+    "e": 250 * $cornerScaleBase,
+);
+
+$typeScaleIncrement: 16px / 14px;
+$typeScaleBase: 14px / 16px * 1rem;
+$typeScale: (
+	"h1": pow($typeScaleIncrement,8) * $typeScaleBase,
+	"h2": pow($typeScaleIncrement,7) * $typeScaleBase,
+	"h3": pow($typeScaleIncrement,6) * $typeScaleBase,
+	"h4": pow($typeScaleIncrement,5) * $typeScaleBase,
+	"h5": pow($typeScaleIncrement,4) * $typeScaleBase,
+	"h6": pow($typeScaleIncrement,3) * $typeScaleBase,
+	"p1": pow($typeScaleIncrement,2) * $typeScaleBase,
+	"p2": pow($typeScaleIncrement,1) * $typeScaleBase
+);
+$typeFallback: (
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif
+);
+
+//min-width type breakpoints
+$responsiveScale: (
+    "1":480px,
+    "2":840px,
+    "3":1024px
+)

@@ -1,0 +1,11 @@
+@import "../mixins/all";
+
+.Button {
+    @include padding-h("4");
+    @include padding-v("3");
+    @include margin("1");
+    @include type("p2");
+    @include corner("sm");
+
+    // TODO migrate scss from old v19-07
+}

@@ -1,0 +1,5 @@
+@import "../constants";
+
+@mixin type($size) {
+    font-size: map-get($typeScale,$size);
+}
