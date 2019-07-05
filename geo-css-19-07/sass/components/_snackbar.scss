@@ -1,0 +1,42 @@
+@import "../mixins/all";
+
+.Snackbar {
+    @include margin("1");
+    @include type("p2");
+    @include corner("1");
+
+    display:inline-flex;
+    align-items: center;
+    background: $defaultColorLight;
+    color: $defaultColorDark;
+    box-shadow: $defaultShadowLight;
+}
+.Snackbar--fullWidth {
+    display:flex;
+}
+.Snackbar--round {
+    @include corner("e");
+    @include padding-h("1");
+    //@include margin-h("2");
+    // adding visual balance that doesn't snap to the scale
+    // so will not use padding or margin mixin
+    //padding-left:3px;padding-right:3px;
+    //margin-left:7px;margin-right:7px;
+}
+.Snackbar-text {
+    @include margin-h("5");
+    @include margin-v("4");
+
+    flex:1;
+}
+.Snackbar-actions {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    @include padding-h("2");
+
+    & .Button {
+        @include margin("0");
+        @include margin-h("1");
+    }
+}

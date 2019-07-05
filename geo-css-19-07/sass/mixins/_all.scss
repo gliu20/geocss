@@ -1,3 +1,13 @@
+// TODO refactor away vars from here
+$defaultColorDark:       #333;
+$defaultColorAccent:      #0f5bff;//#296cff;0f5bff
+$defaultColorLight: #eaedf0;
+
+$defaultShadowDark: rgba($defaultColorDark,0.2) 0px 1px 3px 2px;
+$defaultShadowAccent: rgba($defaultColorAccent,0.2) 0px 1px 3px 2px;
+$defaultShadowLight: rgba($defaultColorLight,0.2) 0px 1px 3px 2px;
+
+
 @import "responsive";
 @import "typography";
 @import "whitespace";

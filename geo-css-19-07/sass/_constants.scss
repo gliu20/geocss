@@ -1,6 +1,9 @@
 @import "math/pow";
 
-$whitespaceScaleBase: 4px / 16px * 1rem;
+// looking for colors???? it is in _all.scss in mixins!!!
+// TODO refactor it into here!!!
+
+$whitespaceScaleBase: 4px;
 $whitespaceScale: (
     "0":  0  * $whitespaceScaleBase,
     "1":  1  * $whitespaceScaleBase,//ss
@@ -25,7 +28,7 @@ $whitespaceScale: (
     "20": 20 * $whitespaceScaleBase//xl
 );
 
-$cornerScaleBase: 4px / 16px * 1rem;
+$cornerScaleBase: 4px;
 $cornerScale: (
     "0":   0 * $cornerScaleBase,
     "1":   1 * $cornerScaleBase,
@@ -33,21 +36,21 @@ $cornerScale: (
     "3":   3 * $cornerScaleBase,
     "4":   4 * $cornerScaleBase,
     "5":   5 * $cornerScaleBase,
-    "o": 50%,
+    "c": 50%,
     "e": 250 * $cornerScaleBase,
 );
 
-$typeScaleIncrement: 16px / 14px;
+$typeScaleIncrement: 1.2;
 $typeScaleBase: 14px / 16px * 1rem;
 $typeScale: (
-	"h1": pow($typeScaleIncrement,8) * $typeScaleBase,
-	"h2": pow($typeScaleIncrement,7) * $typeScaleBase,
-	"h3": pow($typeScaleIncrement,6) * $typeScaleBase,
-	"h4": pow($typeScaleIncrement,5) * $typeScaleBase,
-	"h5": pow($typeScaleIncrement,4) * $typeScaleBase,
-	"h6": pow($typeScaleIncrement,3) * $typeScaleBase,
-	"p1": pow($typeScaleIncrement,2) * $typeScaleBase,
-	"p2": pow($typeScaleIncrement,1) * $typeScaleBase
+	"h1": pow($typeScaleIncrement,7) * $typeScaleBase,
+	"h2": pow($typeScaleIncrement,6) * $typeScaleBase,
+	"h3": pow($typeScaleIncrement,5) * $typeScaleBase,
+	"h4": pow($typeScaleIncrement,4) * $typeScaleBase,
+	"h5": pow($typeScaleIncrement,3) * $typeScaleBase,
+	"h6": pow($typeScaleIncrement,2) * $typeScaleBase,
+	"p1": pow($typeScaleIncrement,1) * $typeScaleBase,
+	"p2": $typeScaleBase
 );
 $typeFallback: (
     -apple-system,
@@ -64,7 +67,7 @@ $typeFallback: (
 
 //min-width type breakpoints
 $responsiveScale: (
-    "1":480px,
-    "2":840px,
-    "3":1024px
+    "1":480px / 16px * 1rem,
+    "2":840px / 16px * 1rem,
+    "3":1024px / 16px * 1rem
 )

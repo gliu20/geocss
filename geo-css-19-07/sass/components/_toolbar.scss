@@ -1,0 +1,38 @@
+@import "../mixins/all";
+
+
+.Toolbar {
+    @include padding-h("1");
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    background: $defaultColorAccent;
+    color: $defaultColorLight;
+}
+
+.Toolbar-text {
+    @include padding-v("5");
+    @include padding-h("4");
+    flex:1;
+}
+
+.Toolbar-actions {
+    @include margin("0");
+
+    display:inline-flex;
+    flex-direction: row;
+    align-items: center;
+    // TODO fix spacing w/ margin-right etc directives
+    // hmmm... looks alright? maybe resolve?
+    display:none;
+    @include responsive("2") {
+        display:inline-flex;
+    }
+}
+
+.Toolbar-mobileAlt {
+    display:block;
+    @include responsive("2") {
+        display:none;
+    }
+}

@@ -3,3 +3,12 @@
 @mixin type($size) {
     font-size: map-get($typeScale,$size);
 }
+
+// TODO create scales for these and update accordingly
+@mixin typeWeight() {
+
+}
+
+@mixin typeLineHeight() {
+    
+}

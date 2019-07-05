@@ -5,7 +5,88 @@
     @include padding-v("3");
     @include margin("1");
     @include type("p2");
-    @include corner("sm");
-
+    @include corner("1");
+    
     // TODO migrate scss from old v19-07
+    display:inline-flex;
+    align-items:center;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    background: $defaultColorAccent;
+    color: $defaultColorLight;
+    border:0;
+
+    &::before,&::after {
+    	content:"";
+    	position:absolute;
+    	top:0;left:0;right:0;bottom:0;
+    	background:currentColor;
+    	transition:opacity 0.1s ease-in, box-shadow 0.2s ease-in;
+    	opacity:0;
+	}
+    
+    &:hover::before,
+	&:focus::before,
+	&:active::after {
+    	opacity:0.24;
+    }
+    
+    &:hover {
+        box-shadow: $defaultShadowAccent;
+    }
+
+    & .Icon {
+        @include padding("0");
+        margin: -99px 0px;
+    }
+
+    & :not(:last-child) {
+        @include padding-right("2");
+    }
+}
+
+.Button--round {
+    @include padding-h("5");
+    @include corner("e");
+}
+
+.Button--outline,
+.Button--text {
+	&:hover::before,
+	&:focus::before,
+	&:active::after {
+    	opacity:0.16;
+	}
+}
+
+.Button--outline {
+    box-shadow: inset currentColor 0 0 0 2px;
+    background: unset;
+    color: $defaultColorAccent;
+
+    &:hover {
+        box-shadow: inset currentColor 0 0 0 2px;
+    }
+}
+
+.Button--text {
+    background: unset;
+    color: $defaultColorAccent;
+
+    &:hover {
+        box-shadow: none;
+    }
+}
+
+.Button--icon,.Button--iconFab {
+    @include corner("e");
+    @include padding("2");
+    @include type("h6");
+
+    line-height:1;
+}
+
+.Button--iconFab {
+    @include padding("4");
 }

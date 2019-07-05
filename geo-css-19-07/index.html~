@@ -141,6 +141,9 @@
         	        <button class="material-icons Button Button--icon">favorite</button>
         	        <button class="material-icons Button Button--icon">close</button>
                 </div>
+        		<div class="Toolbar-mobileAlt">
+        	        <button class="material-icons Button Button--icon">menu</button>
+        		</div>
             </header>
 
         	<header class="Toolbar">
@@ -157,9 +160,6 @@
                     <button class="Button">Click me instead!</button>
         	        <button class="material-icons Button Button--icon">favorite</button>
                 </div>
-        		<div class="Toolbar-mobileAlt">
-        	        <button class="material-icons Button Button--icon">menu</button>
-        		</div>
             </header>
 
             <header class="Toolbar">

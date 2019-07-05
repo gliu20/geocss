@@ -1,10 +1,24 @@
 @import "../mixins/all";
 @import "../constants";
 
-$typeTypes: map-keys($typeScale);
+h1,.u-typeH1 { @include type("h1"); }
+h2,.u-typeH2 { @include type("h2"); }
+h3,.u-typeH3 { @include type("h3"); }
+h4,.u-typeH4 { @include type("h4"); }
+h5,.u-typeH5 { @include type("h5"); }
+h6,.u-typeH6 { @include type("h6"); }
+p,.u-typeP1 { @include type("p1"); }
+caption,figcaption,.u-typeP2 { @include type("p2"); }
 
-@each $type in $typeTypes {
-    .u-type--#{$type} {
-        @include type($type);
+html {
+    font-family:$typeFallback;
+    font-size: 100%;
+
+    @include responsive("1") {
+        font-size: 105%;
+    }
+    
+    @include responsive("2") {
+        font-size: 110%;
     }
 }

@@ -1,0 +1,8 @@
+@import "../mixins/all";
+
+.Icon {
+    @include padding("2");
+    @include type("h6");
+
+    line-height:1;
+}

@@ -1,0 +1,33 @@
+@import "../mixins/all";
+
+.Chip {
+    @include margin("1");
+    @include type("p2");
+    @include corner("1");
+    @include padding-h("1");
+
+    display:inline-flex;
+    align-items:center;
+    background: $defaultColorLight;
+    color: $defaultColorDark;
+    border:0;
+
+    & .Chip-text {
+        @include padding-h("1");
+        @include padding-v("2");
+    }
+
+    & .Button {
+        @include padding("1");
+        @include margin("0");
+    }
+}
+
+.Chip--round {
+    & .Chip-text {
+        @include padding-h("2");
+        // TODO fix the spacing on this component
+    }
+
+    @include corner("e");
+}

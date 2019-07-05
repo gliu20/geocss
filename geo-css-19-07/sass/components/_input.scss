@@ -1,0 +1,19 @@
+@import "../mixins/all";
+
+.Input {
+    @include padding-h("4");
+    @include padding-v("3");
+    @include margin("1");
+    @include type("p2");
+    @include corner("1");
+
+    box-shadow: inset $defaultColorAccent 0 0 0 2px;//, $defaultShadow;
+    background: unset;
+    color: $defaultColorDark;
+    border:0;
+}
+
+.Input--round {
+    @include padding-h("5");
+    @include corner("e");
+}

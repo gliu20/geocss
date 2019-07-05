@@ -1,0 +1,13 @@
+@import "../mixins/all";
+
+.Link {
+    @include padding-h("4");
+    @include padding-v("3");
+    @include margin("1");
+    @include type("p2");
+
+    display:inline-block;
+    font-weight: 500;
+    color:$defaultColorAccent;
+
+}
