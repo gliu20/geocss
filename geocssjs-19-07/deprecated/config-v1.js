@@ -1,0 +1,52 @@
+const config = {
+	
+	modifiers: {
+		mediaQuery: {
+			sm: { minWidth: "480px" },
+			md: { minWidth: "840px" },
+			lg: { minWidth: "1024px" }
+		},
+	},
+	
+	/* Key
+	
+	sp - spacing
+	b - border
+	c - colors
+	txt - text
+	
+	
+	 *
+	 */
+	
+	baseStyles: {
+	
+		padding: {
+			name: "sp-pading",
+			increment: "2px",
+			range: "0..20"
+		},
+		
+		margin: {
+			name: "sp-margin",
+			increment: "2px",
+			range: "0..20"
+		},
+		
+		borderRadius: {
+			name: "b-corner",
+			increment: "4px",
+			range: "0..5",
+			extra: {
+				"infinite": "9999px"
+			}
+		},
+	
+		fontSize: {
+			name: "txt-size",
+			increment: "2px",
+			range: "0..20"
+			
+		},
+	}
+}

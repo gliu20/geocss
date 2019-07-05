@@ -1,0 +1,64 @@
+const config = {
+	
+	parserSettings: {
+		precision: 5
+	},
+	
+	modifiers: {
+		mediaQuery: {
+			sm: { minWidth: "480px" },
+			md: { minWidth: "840px" },
+			lg: { minWidth: "1024px" }
+		},
+	},
+	
+	baseStyles: {
+	
+		padding: [{
+			range: "0...80px",
+			type: "arithmetic",
+			length: 20
+		}],
+		
+		margin: [{
+			range: "0...80px",
+			type: "arithmetic",
+			length: 20
+		}],
+		
+		borderRadius: [{
+			range: "0...20px",
+			type: "arithmetic",
+			length: 5
+		}],
+		
+		fontSize: [{
+			range: "14...64px",
+			type: "geometric",
+			length: 8
+		}],
+		
+		width: [{
+			range: "0...100%",
+			type: "arithmetic",
+			length: 12
+		}],
+		
+		height: [{
+			range: "0...100%",
+			type: "arithmetic",
+			length: 12
+		}]
+		
+		/*special styles
+		color: [{
+			range: "0...100%",
+			type: "arithmetic",
+			length: 12
+		}],
+		
+		bg-color*/
+		
+	}
+
+}

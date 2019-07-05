@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html height-12 lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Midway | Make the most of class time</title>
+    <meta name="description" content="A browser extension that helps you make the most of class time.">
+    
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="css/index.min.css">
+    
+	<script src="config/config.js"></script>
+	<script src="parser/cssify.js"></script>
+	<script src="parser/modScale.js"></script>
+	<script src="parser/parser.js"></script>
+
+	<script>document.write(`<style>${parser.parse(config)}</style>`);</script>
+	
+	<style>
+
+/* Adapted from http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   which is available in the public domain
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button,input,textarea {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	line-height:inherit;
+	vertical-align: baseline;
+	line-height: 1;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+    text-decoration:inherit;
+}
+a:hover {
+    text-decoration:underline;
+}
+
+/* Custom reset
+ */
+
+html {
+	font-size:100%;
+	font-family:Cabin,sans-serif;
+	box-sizing:border-box;
+}
+
+* {
+	box-sizing:inherit;
+}
+
+[background-primary] {
+	background:#26e;
+}
+
+[background-white] {
+	background:#fff;
+}
+
+[color-black] {
+	color:#333;
+}
+
+[color-white] {
+	color:#fff;
+}
+
+	</style>
+</head>
+<body class="force-no-outline" height-12 style="display:flex;flex-direction:column;">
+	<header class="Toolbar" background-white maxWidth-4 width-12 style="margin:auto;">
+        <div class="Toolbar-text">
+            <h1 fontSize-5 color-black style="font-family:Pacifico">Midway</h1>
+        </div>
+        <div class="Toolbar-actions">
+            <a href="javascript:;" color-black fontWeight-3 class="Link">Home</a>
+            <a href="javascript:;" color-black fontWeight-3 class="Link">About</a>
+            <a href="javascript:;" color-black fontWeight-3 class="Link">Support</a>
+            <a href="javascript:;" color-black fontWeight-3 class="Link">Contact</a>
+            <button class="Button">
+                <span class="material-icons Icon">file_download</span>
+                <span>Get Midway</span>
+            </button>
+        </div>
+        <div class="Toolbar-mobileAlt">
+        	<button class="material-icons Button Button--icon" background-white color-black>menu</button>
+        </div>
+    </header>
+    <main style="flex:1;overflow:auto;">
+    	<section color-white style="background-color: #000;
+    	        background-image: url(img/back.png);
+    	        background-position: center;
+    	        background-size: cover;
+    	        background-repeat: no-repeat;
+			">
+			<div padding-10 padding-sm-15 padding-md-20 maxWidth-1 style="display:flex;flex-direction:column;align-items:center;margin:auto;">
+    	        <img alt="midway logo" width="160px" height="160px" padding-1 src="img/logo.png"></img>
+    	        <h2 fontSize-3 fontSize-sm-2 fontSize-md-1 lineHeight-1 paddingTop-3 paddingBottom-4 style="text-align:center;">Make the most of class time</h2>
+    	        <p fontSize-6 fontSize-md-5 lineHeight-2 lineHeight-md-3 paddingBottom-5 style="text-align:center;">Midway helps teachers and students make the most of class time with end of class reminders, custom timers, and periodic notifications.</p>
+    	        
+    	        <button class="Button">
+    	            <span class="material-icons Icon">file_download</span>
+    	            <span>Get Midway</span>
+    	        </button>
+			</div>
+    	</section>
+    	<section style="display:flex;">
+    		<div width-0 width-md-4 style="background-color: #def;
+    	        background-image: url(img/notify.png);
+    	        background-position: center;
+    	        background-size: cover;
+    	        background-repeat: no-repeat;">
+			</div>
+    		<div width-12 width-md-8 padding-10 padding-sm-15 padding-md-20 maxWidth-1 style="display:inline-flex;flex-direction:column;align-items:flex-start;margin:auto;margin-left:10px;">
+    	        <h3 fontSize-4 fontSize-sm-3 fontSize-md-2 lineHeight-1 paddingTop-3 paddingBottom-4>Helpful reminders</h3>
+    	        <p fontSize-6 fontSize-md-5 lineHeight-2 lineHeight-md-3 paddingBottom-5>Keep tabs on absent teachers, special schedules, classes, and more. Customizable class end notifications help you fully utilize class time.</p>
+    	        
+    		        
+    	        <a href="javascript:;" padding-0 paddingTop-2 paddingBottom-2 fontSize-6 color-black fontWeight-3 class="Link">Learn more <span class="Icon material-icons">open_in_new</span></a>
+			</div>
+    	</section>
+    </main>
+    <!--
+	<header background-primary padding-5 fontWeight-4>Padding 5</header>
+	<section>
+		<h1 fontSize-0>The quick brown fox jumps over the lazy dog</h1>
+		<h2 fontSize-1>The quick brown fox jumps over the lazy dog</h2>
+		<h3 fontSize-2>The quick brown fox jumps over the lazy dog</h3>
+		<h4 fontSize-3>The quick brown fox jumps over the lazy dog</h4>
+		<h5 fontSize-4>The quick brown fox jumps over the lazy dog</h5>
+		<h6 fontSize-5>The quick brown fox jumps over the lazy dog</h6>
+		<p fontSize-6>The quick brown fox jumps over the lazy dog</p>
+		<p fontSize-7>The quick brown fox jumps over the lazy dog</p>
+	</section>
+	<section>
+		<input 
+			style="box-shadow: inset #26e 0px 0px 0px 2px;"
+			margin-1 paddingTop-3 paddingBottom-3 paddingLeft-4 paddingRight-4
+			borderRadius-1 
+			fontSize-7
+			type="text" placeholder="Type to search..." />
+		<button 
+			background-primary
+			margin-1 paddingTop-3 paddingBottom-3 paddingLeft-4 paddingRight-4
+			borderRadius-1 
+			fontSize-7 fontWeight-4>Search</button>
+	</section>-->
+    <script src="js/accessible-focus.js"></script>
+</body></html>
