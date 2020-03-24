@@ -1,0 +1,80 @@
+// rwd = responsive web design
+
+@use "sass:map";
+@use "sass:string";
+@use "../conf";
+
+$breakpoints: (
+    "xs": 0px,
+    "sm": 450px,
+    "md": 750px,
+    "lg": 900px,
+    "xl": 1200px
+);
+
+@mixin forEachValue ($className, $type, $prop, $values) {
+    @each $valueKey, $value in $values {
+        @if $type == "xs" {
+            .#{$className}-#{$valueKey},
+            .#{$className}-#{$valueKey}--#{$type} {
+                #{$prop}: $value;
+            }
+        }
+        @else {
+            .#{$className}-#{$valueKey}--#{$type} {
+                #{$prop}: $value;
+            }
+        }
+    }
+}
+
+@mixin responsive ($className, $type, $prop, $values) {
+    $breakpoint: map.get($breakpoints,$type);
+
+    @if $type == "xs" {
+        @include forEachValue($className, $type, $prop, $values)
+    }
+    @else {
+        @media (min-width: $breakpoint) {
+            @include forEachValue($className, $type, $prop, $values)
+        }
+    }
+}
+
+@mixin responsiveAll ($className, $prop, $values) {
+    @each $breakpointType, $breakpointValue in $breakpoints {
+        @include responsive($className, $breakpointType, $prop, $values)
+    }
+}
+
+@mixin directionalResponsiveAll ($className, $prop, $values) {
+    // main
+    @include responsiveAll($className, $prop, $values);
+
+    // vertical
+    @include responsiveAll($className + "y",direction($prop,"top"), $values);
+    @include responsiveAll($className + "y",direction($prop,"bottom"), $values);
+    @include responsiveAll($className + "yt",direction($prop,"top"), $values);
+    @include responsiveAll($className + "yb",direction($prop,"bottom"), $values);
+
+    // horizontal
+    @include responsiveAll($className + "x",direction($prop,"left"), $values);
+    @include responsiveAll($className + "x",direction($prop,"right"), $values);
+    @include responsiveAll($className + "xl",direction($prop,"left"), $values);
+    @include responsiveAll($className + "xr",direction($prop,"right"), $values);
+}
+
+@function direction ($prop,$direction) {
+    $prop: $prop + "-";
+    $index: string.index($prop, "-");
+
+    $beginProp: string.slice($prop, 1, $index - 1);
+    $endProp: string.slice($prop, $index + 1,-2);
+
+    @if string.length($endProp) == 0 {
+        @return $beginProp + "-" + $direction;
+    }
+    @else {
+        @return $beginProp + "-" + $direction + "-" + $endProp;
+    }
+}

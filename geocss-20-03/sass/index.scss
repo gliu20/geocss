@@ -1,0 +1,166 @@
+@use "sass:map";
+@use "functions/rwd";
+@use "conf";
+@use "normalize";
+
+// custom reset
+* {
+    box-sizing: border-box;
+}
+
+input, button {
+    border:0;
+}
+
+///////// sizing
+@include rwd.responsiveAll("w","width", conf.$grid);
+@include rwd.responsiveAll("h","height", conf.$grid);
+
+@include rwd.responsiveAll("max-w","max-width", conf.$grid);
+@include rwd.responsiveAll("max-h","max-height", conf.$grid);
+@include rwd.responsiveAll("min-w","min-width", conf.$grid);
+@include rwd.responsiveAll("min-h","min-height", conf.$grid);
+
+/////////////////////// whitespace
+@include rwd.directionalResponsiveAll("m","margin", map.merge(conf.$whitespaceScale,("auto":auto)));
+@include rwd.directionalResponsiveAll("p","padding", conf.$whitespaceScale);
+
+
+////////////////// colors
+@include rwd.responsiveAll("text","color", conf.$colors);
+@include rwd.responsiveAll("bg","background-color", conf.$colors);
+
+@include rwd.directionalResponsiveAll("border","border-color", conf.$colors);
+
+////// rounding
+@include rwd.responsiveAll("r","border-radius", conf.$roundnessScale);
+
+
+/////////////////// fonts/text
+@include rwd.responsiveAll("text","font-size", conf.$textSizes);
+@include rwd.responsiveAll("text","font-family", conf.$fontFamilies);
+@include rwd.responsiveAll("text","font-style", conf.$fontStyles);
+@include rwd.responsiveAll("text-bold","font-weight", conf.$fontWeights);
+@include rwd.responsiveAll("text-height","line-height", conf.$fontHeights);
+@include rwd.responsiveAll("text","text-align", conf.$textAlign);
+@include rwd.responsiveAll("text","text-decoration", conf.$textDecorations);
+// TODO can support text-transform
+@include rwd.responsiveAll("text","white-space", conf.$textWrap);
+
+
+///////////////// display
+@include rwd.responsiveAll("disp","display", conf.$display);
+
+////////////////// flex
+@include rwd.responsiveAll("flex-dir","flex-direction", conf.$flexDirection);
+@include rwd.responsiveAll("flex-grow","flex-grow", conf.$flexScale);
+@include rwd.responsiveAll("flex-shrink","flex-shrink", conf.$flexScale);
+@include rwd.responsiveAll("flex","flex", conf.$flexScale);
+@include rwd.responsiveAll("flex-wrap","flex-wrap", conf.$flexWrap);
+@include rwd.responsiveAll("justify-content","justify-content", conf.$flexJustify);
+@include rwd.responsiveAll("align-self","align-self", conf.$flexAlign);
+@include rwd.responsiveAll("align-items","align-items", conf.$flexAlign);
+@include rwd.responsiveAll("align-content","align-content", conf.$flexJustify);
+
+
+.sr-only {
+    height: 1px;
+    width: 1px;
+    line-height: 1;
+    opacity: .001;
+    overflow: hidden;
+    position: absolute;
+}
+
+.sr-only-focusable:focus {
+    height:auto;
+    width:auto;
+    opacity:1;
+    overflow: auto;
+    position: relative;
+}
+
+::selection{background:rgba(136,221,255,.4)}
+::-moz-selection{background:rgba(136,221,255,.4)}
+
+.menu--open {
+    @extend .h-12;
+    @extend .w-12; 
+    @extend .disp-flex;
+    @extend .flex-dir-column;
+    @extend .align-items-center; 
+    @extend .justify-content-center;
+    position: fixed;top:0;left:0;
+    .menu-links {
+        @extend .my-8;
+        @extend .disp-inline-block;
+    }
+
+    .menu-close-btn {
+        position: absolute;top:0;left:0;
+        @extend .p-24;
+        @extend .disp-inline-block;
+    }
+
+    .menu-open-btn {
+        @extend .disp-none;
+    }
+}
+
+.menu {
+    &:target {
+        @extend .menu--open;
+    }
+    
+    .menu-links {
+        @extend .disp-none;
+        @extend .disp-inline-block--md;
+    }
+
+    .menu-open-btn {
+        @extend .disp-none--md;
+    }
+
+    .menu-close-btn {
+        @extend .disp-none;
+    }
+}
+
+@mixin headingBase {
+    @extend .text-bold-400;
+    @extend .m-0;
+}
+
+h1 { 
+    @extend .text-4x;
+    @include headingBase();
+}
+
+h2 { 
+    @extend .text-3x;
+    @include headingBase();
+}
+
+h3 { 
+    @extend .text-2x;
+    @include headingBase();
+}
+
+h4 { 
+    @extend .text-xl;
+    @include headingBase();
+}
+
+h5 { 
+    @extend .text-lg;
+    @include headingBase();
+}
+
+h6 { 
+    @extend .text-md;
+    @include headingBase();
+}
+
+p {
+    @extend .text-height-md;
+}

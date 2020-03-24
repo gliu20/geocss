@@ -1,0 +1,202 @@
+
+@use "functions/colors";
+
+// conf = configuration
+
+$grid: (
+    "0":0 / 12 * 100%,
+    "1":1 / 12 * 100%,
+    "2":2 / 12 * 100%,
+    "3":3 / 12 * 100%,
+    "4":4 / 12 * 100%,
+    "5":5 / 12 * 100%,
+    "6":6 / 12 * 100%,
+    "7":7 / 12 * 100%,
+    "8":8 / 12 * 100%,
+    "9":9 / 12 * 100%,
+    "10":10 / 12 * 100%,
+    "11":11 / 12 * 100%,
+    "12":12 / 12 * 100%,
+    "auto":auto,
+    "xs": 250px / 16px * 1rem,
+    "sm": 300px / 16px * 1rem,
+    "md": 650px / 16px * 1rem,
+    "lg": 850px / 16px * 1rem,
+    "xl": 1000px / 16px * 1rem,
+    "2x": 1200px / 16px * 1rem,
+    "3x": 1400px / 16px * 1rem
+);
+
+$whitespaceScale: (
+    "0":0px / 16px * 1rem,
+    "4":4px / 16px * 1rem,
+    "8":8px / 16px * 1rem,
+    "12":12px / 16px * 1rem,
+    "16":16px / 16px * 1rem,
+    "20":20px / 16px * 1rem,
+    "24":24px / 16px * 1rem,
+    "32":32px / 16px * 1rem,
+    "40":40px / 16px * 1rem,
+    "48":48px / 16px * 1rem,
+    "64":64px / 16px * 1rem,
+    "80":80px / 16px * 1rem
+);
+
+$hues: (
+    "red":#d50000,
+    "pink":#c51162,
+    "purple":#aa00ff,
+    "deep-purple":#6200ea,
+    "indigo":#304ffe,
+    "blue":#2962ff,
+    "light-blue":#0091ea,
+    "cyan":#0091ea,
+    "teal":#00bfa5,
+    "green":#00c853,
+    "light-green":#64dd17,
+    "lime":#aeea00,
+    "yellow":#ffd600,
+    "amber":#ffab00,
+    "orange":#ff6d00,
+    "deep-orange":#dd2c00,
+    "brown":#5d4037,
+    "grey":#616161,
+    "blue-grey":#455a64,
+    "black": #000000,
+    "white": #ffffff
+);
+
+// this adds in 100,200,300, etc.
+$colors: colors.colorScale($hues);
+
+
+$fontStyles: (
+    "notitalic": normal,
+    "italic": italic
+);
+
+$fontWeights: (
+    "100":100,
+    "200":200,
+    "300":300,
+    "400":400,
+    "500":500,
+    "600":600,
+    "700":700,
+    "800":800,
+    "900":900
+);
+
+$fontHeights: (
+    "0":1,
+    "xs":1.25,
+    "sm":1.375,
+    "md":1.5,
+    "lg":1.625,
+    "xl":2
+);
+
+$fontFamilies: (
+    "lexend": ('Lexend Deca',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif),
+    "quicksand": ('Quicksand',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif)
+);
+
+$textAlign: (
+    "center":center,
+    "justify":justify,
+    "left":left,
+    "right":right
+);
+
+$textDecorations: (
+    "strike": line-through,
+    "underline": underline,
+    "normal":none
+);
+
+$textWrap: (
+    "wrap":normal,
+    "nowrap":nowrap,
+    "pre":pre,
+    "pre-line":pre-line,
+    "pre-wrap":pre-wrap
+);
+
+$textSizes: (
+    "sm": 14px / 16px * 1rem,
+    "md": 16px / 16px * 1rem,
+    "lg": 18px / 16px * 1rem,
+    "xl": 22px / 16px * 1rem,
+    "2x": 26px / 16px * 1rem,
+    "3x": 32px / 16px * 1rem,
+    "4x": 38px / 16px * 1rem,
+    "5x": 46px / 16px * 1rem,
+    "6x": 54px / 16px * 1rem
+);
+
+$display: (
+    "block": block,
+    "inline-block": inline-block,
+    "inline": inline,
+    "flex": flex,
+    "inline-flex": inline-flex,
+    "none":none
+);
+
+$roundnessScale: (
+    "0":0px / 16px * 1rem,
+    "4":4px / 16px * 1rem,
+    "8":8px / 16px * 1rem,
+    "12":12px / 16px * 1rem,
+    "16":16px / 16px * 1rem,
+    "20":20px / 16px * 1rem
+);
+
+
+$flexDirection: (
+    "row": row,
+    "row-reverse": row-reverse,
+    "column": column,
+    "column-reverse": column-reverse
+);
+
+$flexScale: (
+    "0":0,
+    "1":1,
+    "2":2,
+    "3":3,
+    "4":4,
+    "5":5,
+    "6":6,
+    "7":7,
+    "8":8,
+    "9":9,
+    "10":10,
+    "11":11,
+    "12":12
+);
+
+$flexWrap: (
+    "nowrap":nowrap,
+    "wrap":wrap,
+    "wrap-reverse":wrap-reverse
+);
+
+$flexJustify: (
+    "flex-start":flex-start,
+    "flex-end":flex-end,
+    "center":center,
+    "space-between":space-between,
+    "space-around":space-around,
+    "space-evenly":space-evenly,
+    "stretch":stretch
+);
+
+$flexAlign: (
+    "auto":auto,
+    "flex-start":flex-start,
+    "flex-end":flex-end,
+    "center":center,
+    "baseline":baseline,
+    "stretch":stretch
+);

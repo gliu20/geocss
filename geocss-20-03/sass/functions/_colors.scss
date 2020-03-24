@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "sass:color";
+
+@function color ($colors,$type,$lightness) {
+    $newColorScale: $colors;
+
+    @each $colorName, $color in $colors {
+        $colorClassName: "#{$colorName}-#{$type}";
+        $adjustedColor: color.scale($color,$lightness: $lightness);
+
+        $newColorScale: map.merge(
+            $newColorScale, 
+            ("#{$colorClassName}": $adjustedColor)
+        )
+    }
+
+    @return $newColorScale;
+}
+
+@function colorScale ($colors) {
+    $newColorScale: $colors;
+
+    $newColorScale: map.merge($newColorScale, color($colors,"100",90%));
+    $newColorScale: map.merge($newColorScale, color($colors,"200",75%));
+    $newColorScale: map.merge($newColorScale, color($colors,"300",60%));
+    $newColorScale: map.merge($newColorScale, color($colors,"400",45%));
+    $newColorScale: map.merge($newColorScale, color($colors,"500",30%));
+    $newColorScale: map.merge($newColorScale, color($colors,"600",15%));
+    $newColorScale: map.merge($newColorScale, color($colors,"700",0%));
+    $newColorScale: map.merge($newColorScale, color($colors,"800",-20%));
+    $newColorScale: map.merge($newColorScale, color($colors,"900",-40%));
+
+    
+    $newColorScale: map.merge($newColorScale, ("current":currentColor));
+
+    @return $newColorScale;
+}
